@@ -18,7 +18,7 @@ git clone https://github.com/olafrv/ollama-combo.git
 cd ollama-combo
 # Tweak the configuration in .env
 ./start.sh
-./model.sh
+./models.sh
 # Ollama require GPU (CUDA) to run
 # See docker-compose.yml for more details
 # Go to http://localhost:8080
