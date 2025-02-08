@@ -38,12 +38,6 @@ cd shollama
 * `Cannot find local snapshot HF_HUGGING_OFFLINE=1`. Set it to 0 in `env.iu.env`,
   you can set it back after the first run.
 
-
-# To Explore
-
-* https://docs.openwebui.com/features/plugin/functions/
-* https://docs.openwebui.com/features/rag
-
 # Integrating Ollama with VSCode
 
 ## Install Continue Package
@@ -51,7 +45,7 @@ cd shollama
 https://docs.continue.dev/getting-started/install
 https://marketplace.visualstudio.com/items?itemName=Continue.continue
 
-# Configure Ollama as Model in Continue
+## Configure Ollama as Model in Continue
 
 https://docs.continue.dev/customize/model-providers/ollama#using-a-remote-instance
 
@@ -73,3 +67,8 @@ https://docs.continue.dev/customize/model-providers/ollama#using-a-remote-instan
   ]
 }
 ```
+
+# To Explore
+
+* https://docs.openwebui.com/features/plugin/functions/
+* https://docs.openwebui.com/features/rag
