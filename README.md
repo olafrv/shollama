@@ -14,8 +14,8 @@ Easy to setup, self-hosted, multi-model AI chatbot & API server.
 # Usage
 
 ```bash	
-git clone https://github.com/olafrv/ollama-combo.git
-cd ollama-combo
+git clone https://github.com/olafrv/shollama.git
+cd shollama
 # Tweak the configuration in .env
 ./start.sh
 ./models.sh
