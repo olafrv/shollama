@@ -19,8 +19,8 @@ cd shollama
 # Tweak the configuration in .env
 ./start.sh
 ./models.sh
-# Ollama require GPU (CUDA) to run
-# See docker-compose.yml for more details
+# Ollama require GPU (CUDA) to run, but
+# in docker-compose.yml can be disabled.
 # Go to http://localhost:8080
 # Or run any tests ./test*.sh
 ./stop.sh
