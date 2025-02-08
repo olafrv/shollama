@@ -1,17 +1,17 @@
 # Self Hosted Ollama (Shollama)
 
-# Purpose
+## Purpose
 
 Easy to setup, self-hosted, multi-model AI chatbot & API server.
 
-# 3rd Party Components
+## 3rd Party Components
 
 * Ollama - https://ollama.com/
 * Open Web UI - https://openwebui.com/
 * Alexis - `./alexis`, An Alexa-like chatbot.
 * Hardware?: See https://github.com/olafrv/ai_chat_llama2
 
-# Usage
+## Usage
 
 ```bash	
 git clone https://github.com/olafrv/shollama.git
@@ -26,26 +26,26 @@ cd shollama
 ./stop.sh
 ```
 
-# Common Errors
+## Common Errors
 
-## Ollama
+### Ollama
 
 * `docker: ()...) could not select device driver "nvidia" (...) [[gpu]]`,
   Comment the 'deploy' section in docker-compose.yaml for ollama service.
 
-## Open Web UI
+### Open Web UI
 
 * `Cannot find local snapshot HF_HUGGING_OFFLINE=1`. Set it to 0 in `env.iu.env`,
   you can set it back after the first run.
 
-# Integrating Ollama with VSCode
+## Integrating Ollama with VSCode
 
-## Install Continue Package
+### Install Continue Package
 
 https://docs.continue.dev/getting-started/install
 https://marketplace.visualstudio.com/items?itemName=Continue.continue
 
-## Configure Ollama as Model in Continue
+### Configure Ollama as Model in Continue
 
 https://docs.continue.dev/customize/model-providers/ollama#using-a-remote-instance
 
@@ -68,7 +68,7 @@ https://docs.continue.dev/customize/model-providers/ollama#using-a-remote-instan
 }
 ```
 
-# To Explore
+## To Explore
 
 * https://docs.openwebui.com/features/plugin/functions/
 * https://docs.openwebui.com/features/rag
