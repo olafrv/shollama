@@ -25,3 +25,8 @@ cd ollama-combo
 # Or run any tests ./test*.sh
 ./stop.sh
 ```
+
+# Explore
+
+* https://docs.openwebui.com/features/plugin/functions/
+* https://docs.openwebui.com/features/rag
