@@ -1,0 +1,48 @@
+services:
+  # https://ollama.com/
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./_data/ollama:/root/.ollama
+    restart: always
+    deploy:
+      resources:
+        reservations:
+          # https://docs.docker.com/compose/how-tos/gpu-support/
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    
+  # https://github.com/open-webui/open-webui
+  ollama-ui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: ollama-ui
+    ports:
+      - 8080:8080
+    # https://docs.openwebui.com/getting-started/env-configuration
+    env_file:
+      - env.global.env
+      - env.ui.env
+    volumes:
+      - ./_data/ollama-ui:/app/backend/data
+    depends_on:
+      - ollama
+    restart: always
+
+  alexis:
+    image: olafrv/alexis:latest
+    build:
+      context: ./alexis
+      dockerfile: Dockerfile
+    container_name: alexis
+    ports:
+      - "11435:11435"
+    restart: always
+    env_file:
+      - env.global.env
+    depends_on:
+    - ollama

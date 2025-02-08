@@ -1,0 +1,5 @@
+flask
+flask-httpauth
+ollama
+asgiref
+uvicorn
