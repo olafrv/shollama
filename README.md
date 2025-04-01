@@ -40,12 +40,34 @@ cd shollama
 
 ## Integrating Ollama with VSCode
 
-### Install Continue Package
+### ChatGPT Copilot Extension
+
+https://github.com/feiskyer/chatgpt-copilot
+
+After install, go to Settings > Filter by ChatGPT,
+set the following parameters (ChatGPT > Gpt3):
+
+* Provider LLM: Ollama
+* API Key: FOR_GOD_SAKE_CHANGE_ME
+* API Base Url: Leave it in blank
+* Model: custom
+* Custom Model: qwen2.5-coder:7b
+
+This model is not downloaded by default, so:
+
+```bash
+# Edit ./models.sh, or pull it manually running:
+docker exec -it ollama ollama pull qwen2.5-coder:7b
+```
+
+### Continue Extension
+
+Install Continue extension in VS Code:
 
 https://docs.continue.dev/getting-started/install
 https://marketplace.visualstudio.com/items?itemName=Continue.continue
 
-### Configure Ollama as Model in Continue
+Then configure the require models as described below:
 
 https://docs.continue.dev/customize/model-providers/ollama#using-a-remote-instance
 
