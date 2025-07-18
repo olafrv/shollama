@@ -40,7 +40,21 @@ cd shollama
 
 ## Integrating Ollama with VSCode
 
+### GitHub Copilot Chat Extension
+
+As of 18.07.2025:
+
+Currently, only works with Chat mode and has limitations:
+https://code.visualstudio.com/docs/copilot/language-models
+
+You need to define the setting (and restart VSCode):
+GitHub › Copilot › Chat › Byok: Ollama Endpoint
+
 ### ChatGPT Copilot Extension
+
+As of 17.08.2025:
+
+Currently, works but not as flowlessly as GitHub Copilot:
 
 https://github.com/feiskyer/chatgpt-copilot
 
@@ -60,35 +74,10 @@ This model is not downloaded by default, so:
 docker exec -it ollama ollama pull qwen2.5-coder:7b
 ```
 
-### Continue Extension
+## Discarded
 
-Install Continue extension in VS Code:
-
-https://docs.continue.dev/getting-started/install
-https://marketplace.visualstudio.com/items?itemName=Continue.continue
-
-Then configure the require models as described below:
-
-https://docs.continue.dev/customize/model-providers/ollama#using-a-remote-instance
-
-```json
-{
-  "models": [
-    {
-      "title": "deepseek-r1",
-      "provider": "ollama",
-      "model": "deepseek-r1",
-      "apiBase": "http://localhost:11434"
-    },
-    {
-      "title": "qwen2.5-coder",
-      "provider": "ollama",
-      "model": "qwen2.5-coder:1.5b",
-      "apiBase": "http://localhost:11434"
-    },
-  ]
-}
-```
+* Continue requires 3 models running to operate (too much):
+  https://docs.continue.dev/customize/model-providers/top-level/ollama
 
 ## To Explore
 
