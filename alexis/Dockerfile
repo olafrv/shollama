@@ -1,4 +1,5 @@
 # Use an official Python runtime as the base image
+# 3.12 has critical vulnerability waiting for a fix
 FROM python:3.12-slim
 
 # Set the working directory in the container
