@@ -1,7 +1,7 @@
 services:
   # https://ollama.com/
   ollama:
-    image: ollama/ollama
+    image: ollama/ollama:latest
     container_name: ollama
     ports:
       - "11434:11434"
