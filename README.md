@@ -64,6 +64,12 @@ Then run the following commands to start the services:
 * `Cannot find local snapshot HF_HUGGING_OFFLINE=1`. Set it to 0 in `env.iu.env`,
   you can set it back after the first run.
 
+### Test API
+```bash
+# Test Ollama API
+curl http://localhost:11434/api/generate -d '{ "model": "llama3.2", "prompt": "How are you today?"}'
+```
+
 ## Integrating Ollama with VSCode
 
 ### GitHub Copilot Chat Extension
