@@ -13,10 +13,36 @@ Easy to setup, self-hosted, multi-model AI chatbot & API server.
 
 ## Usage
 
+Clone the repository and set up the environment:
 ```bash	
 git clone https://github.com/olafrv/shollama.git
 cd shollama
-# Tweak the configuration in .env
+# Create .env files as described above
+mv docker-compose.example.yml docker-compose.yml  # adjust if needed
+```
+
+Create `env.global.env` with the following content:
+```bash
+OLLAMA_BASE_URL=http://ollama:11434
+OLLAMA_API_KEY=FOR_GOD_SAKE_CHANGE_ME
+```
+
+Create `env.ui.env` with the following content:
+```bash
+HF_HUB_OFFLINE=0
+WEBUI_NAME="Self Hosted Ollama"
+WEBUI_URL="http://localhost:8080"
+PORT=8080
+ENABLE_SIGNUP=true
+ENABLE_OAUTH_SIGNUP=false
+ENABLE_REALTIME_CHAT_SAVE=true
+ENABLE_ADMIN_EXPORT=false
+USE_CUDA_DOCKER=true
+ENABLE_EVALUATION_ARENA_MODELS=False
+```
+
+Then run the following commands to start the services:
+```bash
 ./start.sh
 ./models.sh
 # Ollama require GPU (CUDA) to run, but
