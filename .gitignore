@@ -1,3 +1,4 @@
 _data
-*.env
+env.global.env
+env.ui.env
 docker-compose.yaml
