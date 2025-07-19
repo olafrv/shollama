@@ -41,6 +41,12 @@ USE_CUDA_DOCKER=true
 ENABLE_EVALUATION_ARENA_MODELS=False
 ```
 
+Enable Docker NVIDIA GPU Support, which means, you need to install NVIDIA
+CUDA drivers, do checks, NVIDIA container toolkit, do checks, then install
+finally restart Docker.
+
+See https://github.com/olafrv/ai_chat_llama2/blob/master/README.md
+
 Then run the following commands to start the services:
 ```bash
 ./start.sh
