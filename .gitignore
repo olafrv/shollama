@@ -1,2 +1,3 @@
 _data
 *.env
+docker-compose.yaml
