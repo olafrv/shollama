@@ -9,7 +9,7 @@ Easy to setup, self-hosted, multi-model AI chatbot & API server.
 * Ollama - https://ollama.com/
 * Open Web UI - https://openwebui.com/
 * Alexis - `./alexis`, An Alexa-like chatbot.
-* Hardware?: See https://github.com/olafrv/ai_chat_llama2
+* Hardware?: See https://github.com/olafrv/nvidia-docker-wsl
 
 ## Usage
 
