@@ -48,8 +48,7 @@ services:
     depends_on:
     - ollama
 
-# docker network create --driver=bridge --subnet=172.26.0.0/16 --gateway=172.26.0.1 containers
-networks:
-  default:
-    name: containers
-    external: true
+#networks:
+#  default:
+#    name: containers
+#    external: true
