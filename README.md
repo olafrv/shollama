@@ -17,8 +17,6 @@ Clone the repository and set up the environment:
 ```bash	
 git clone https://github.com/olafrv/shollama.git
 cd shollama
-# Create .env files as described above
-mv docker-compose.example.yml docker-compose.yml  # adjust if needed
 ```
 
 Create `env.global.env` with the following content:

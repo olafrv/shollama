@@ -8,6 +8,7 @@ services:
     volumes:
       - ./_data/ollama:/root/.ollama
     restart: always
+    # Comment out the following lines if you are using CPU
     deploy:
       resources:
         reservations:
@@ -46,3 +47,9 @@ services:
       - env.global.env
     depends_on:
     - ollama
+
+# docker network create --driver=bridge --subnet=172.26.0.0/16 --gateway=172.26.0.1 containers
+networks:
+  composed:
+    external:
+      name: containers
