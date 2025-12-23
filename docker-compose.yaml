@@ -1,6 +1,7 @@
 services:
   # https://ollama.com/
   ollama:
+    profiles: ["cli", "ui", "alexis"]
     image: ollama/ollama:latest
     container_name: ollama
     ports:
@@ -20,6 +21,7 @@ services:
     
   # https://github.com/open-webui/open-webui
   ollama-ui:
+    profiles: ["ui", "alexis"]
     image: ghcr.io/open-webui/open-webui:main
     container_name: ollama-ui
     ports:
@@ -35,6 +37,7 @@ services:
     restart: always
 
   alexis:
+    profiles: ["alexis"]
     image: olafrv/alexis:latest
     build:
       context: ./alexis

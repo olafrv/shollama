@@ -76,6 +76,16 @@ curl http://localhost:11434/api/generate -d '{ "model": "llama3.2", "prompt": "H
 
 ## Integrating Ollama with VSCode
 
+## Continue.dev Chat Extension
+
+Continue requires 3 models:
+* Chat (and Edit): llama3.1:8b
+* Autocomplete: qwen2.5-coder:1.5b-base
+* Embedding: nomic-embed-text:latest
+
+Reference:
+* https://docs.continue.dev/ide-extensions/install
+
 ### GitHub Copilot Chat Extension
 
 As of 18.07.2025:
@@ -85,6 +95,9 @@ https://code.visualstudio.com/docs/copilot/language-models
 
 You need to define the setting (and restart VSCode):
 GitHub › Copilot › Chat › Byok: Ollama Endpoint
+
+If you have a Github Copilot Pro or Business licenses, 
+you can't use local models (Organization Restriction).
 
 ### ChatGPT Copilot Extension
 
@@ -109,11 +122,6 @@ This model is not downloaded by default, so:
 # Edit ./models.sh, or pull it manually running:
 docker exec -it ollama ollama pull qwen2.5-coder:7b
 ```
-
-## Discarded
-
-* Continue requires 3 models running to operate (too much):
-  https://docs.continue.dev/customize/model-providers/top-level/ollama
 
 ## To Explore
 

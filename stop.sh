@@ -1,3 +1,7 @@
 #!/bin/bash
 set -ex
-docker compose down
+if [ -z "$1" ]; then
+  echo "Usage: $0 --profile <cli|ui|alexis>"
+  exit 1
+fi
+docker compose --profile $1 down
