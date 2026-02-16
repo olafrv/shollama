@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -e
 
 if [ -z "$1" ]; then
   echo "Usage: $0 <cli|ui|alexis>"
