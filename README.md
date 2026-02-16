@@ -82,7 +82,7 @@ curl http://localhost:11434/api/generate \
 
 ## Integrating Ollama with VSCode
 
-## Continue.dev Chat Extension
+### Continue.dev Chat Extension
 
 Continue requires 3 models:
 * Chat (and Edit): llama3.1:8b
