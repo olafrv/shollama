@@ -9,15 +9,6 @@ services:
     volumes:
       - ./_data/ollama:/root/.ollama
     restart: always
-    # Comment out the following lines if you are using CPU
-    deploy:
-      resources:
-        reservations:
-          # https://docs.docker.com/compose/how-tos/gpu-support/
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
     
   # https://github.com/open-webui/open-webui
   ollama-ui:
@@ -34,6 +25,15 @@ services:
       - ./_data/ollama-ui:/app/backend/data
     depends_on:
       - ollama
+      - tika
+    restart: always
+
+  # https://docs.openwebui.com/tutorials/integrations/apachetika
+  tika:
+    image: apache/tika:latest-full
+    container_name: tika
+    ports:
+      - "9998:9998"
     restart: always
 
   alexis:
@@ -51,7 +51,7 @@ services:
     depends_on:
     - ollama
 
-#networks:
-#  default:
-#    name: containers
-#    external: true
+networks:
+  default:
+    name: containers
+    external: true
