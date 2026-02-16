@@ -24,5 +24,5 @@ else
   docker network create containers
 fi
 
-docker compose pull --ignore-buildable
+docker compose $GPU_COMPOSE_FILE --profile "$1" pull --ignore-buildable
 docker compose $GPU_COMPOSE_FILE --profile "$1" up -d --build
