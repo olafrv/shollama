@@ -4,29 +4,28 @@
 
 Easy to setup, self-hosted, multi-model AI chatbot & API server.
 
-## 3rd Party Components
+## Components
 
-* Ollama - https://ollama.com/
-* Open Web UI - https://openwebui.com/
-* Alexis - `./alexis`, An Alexa-like chatbot.
-* Hardware?: See https://github.com/olafrv/nvidia-docker-wsl
+* Ollama: https://ollama.com/
+* Open Web UI: https://openwebui.com/
+* Alexis: See `./alexis` an Alexa-like chatbot.
 
-## Usage
+## Configuration
 
 Clone the repository and set up the environment:
-```bash	
+```sh	
 git clone https://github.com/olafrv/shollama.git
 cd shollama
 ```
 
 Create `env.global.env` with the following content:
-```bash
+```sh
 OLLAMA_BASE_URL=http://ollama:11434
 OLLAMA_API_KEY=FOR_GOD_SAKE_CHANGE_ME
 ```
 
 Create `env.ui.env` with the following content:
-```bash
+```sh
 HF_HUB_OFFLINE=0
 WEBUI_NAME="Self Hosted Ollama"
 WEBUI_URL="http://localhost:8080"
@@ -39,16 +38,22 @@ USE_CUDA_DOCKER=true
 ENABLE_EVALUATION_ARENA_MODELS=False
 ```
 
+## NVIDIA GPU Support
+
 Enable Docker NVIDIA GPU Support, which means, you need to install NVIDIA
 CUDA drivers, do checks, NVIDIA container toolkit, do checks, then install
 finally restart Docker.
 
 See https://github.com/olafrv/nvidia-docker-wsl
 
+## Start Services
+
 Then run the following commands to start the services:
-```bash
+```sh
 ./start.sh
-./models.sh
+# Uncomment models as needed in models.sh, or pull them manually running:
+# docker exec -it ollama ollama pull <model>:<tag>
+./models.sh  
 # Ollama require GPU (CUDA) to run, but
 # in docker-compose.yml can be disabled.
 # Go to http://localhost:8080
@@ -69,9 +74,10 @@ Then run the following commands to start the services:
   you can set it back after the first run.
 
 ### Test API
-```bash
+```sh
 # Test Ollama API
-curl http://localhost:11434/api/generate -d '{ "model": "llama3.2", "prompt": "How are you today?"}'
+curl http://localhost:11434/api/generate \
+    -d '{ "model": "llama3.2", "prompt": "How are you today?"}'
 ```
 
 ## Integrating Ollama with VSCode
@@ -88,15 +94,15 @@ Reference:
 
 ### GitHub Copilot Chat Extension
 
-As of 18.07.2025:
+As of 16.02.2026 and only for VSCode Insiders.
 
 Currently, only works with Chat mode and has limitations:
-https://code.visualstudio.com/docs/copilot/language-models
+https://code.visualstudio.com/docs/copilot/customization/language-models#_bring-your-own-language-model-key
 
 You need to define the setting (and restart VSCode):
 GitHub › Copilot › Chat › Byok: Ollama Endpoint
 
-If you have a Github Copilot Pro or Business licenses, 
+If you have a Github Copilot Business or Enterprise, 
 you can't use local models (Organization Restriction).
 
 ### ChatGPT Copilot Extension
@@ -115,15 +121,3 @@ set the following parameters (ChatGPT > Gpt3):
 * API Base Url: Leave it in blank
 * Model: custom
 * Custom Model: qwen2.5-coder:7b
-
-This model is not downloaded by default, so:
-
-```bash
-# Edit ./models.sh, or pull it manually running:
-docker exec -it ollama ollama pull qwen2.5-coder:7b
-```
-
-## To Explore
-
-* https://docs.openwebui.com/features/plugin/functions/
-* https://docs.openwebui.com/features/rag
