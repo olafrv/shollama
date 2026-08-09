@@ -30,6 +30,7 @@ services:
 
   # https://docs.openwebui.com/tutorials/integrations/apachetika
   tika:
+    profiles: ["ui", "alexis"]
     image: apache/tika:latest-full
     container_name: tika
     ports:
