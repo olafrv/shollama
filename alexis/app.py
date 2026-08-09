@@ -1,9 +1,9 @@
 
 from flask import Flask, request, jsonify  # type: ignore
 from flask_httpauth import HTTPTokenAuth  # type: ignore
-from ollama import Client, ChatResponse
+from ollama import Client, ChatResponse # type: ignore
 from asgiref.wsgi import WsgiToAsgi  # type: ignore
-import uvicorn
+import uvicorn # type: ignore
 import os
 
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL")
