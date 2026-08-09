@@ -7,13 +7,17 @@ if [ -z "$1" ]; then
 fi
 
 # Detect GPU availability
-GPU_COMPOSE_FILE=""
+# https://docs.docker.com/compose/how-tos/gpu-support/
+COMPOSE_FILE="docker-compose.yaml"
 if command -v nvidia-smi &> /dev/null; then
   echo "GPU detected - enabling GPU support"
-  GPU_COMPOSE_FILE="-f docker-compose.yaml -f docker-compose.gpu.yaml"
+  COMPOSE_FILE=$(mktemp --suffix=.json)
+  trap 'rm -f "$COMPOSE_FILE"' EXIT
+  docker compose -f docker-compose.yaml --profile "$1" config --format json \
+    | jq '.services.ollama.deploy.resources.reservations.devices = [{"driver": "nvidia", "count": "all", "capabilities": ["gpu"]}]' \
+    > "$COMPOSE_FILE"
 else
   echo "No GPU detected - running CPU-only"
-  GPU_COMPOSE_FILE="-f docker-compose.yaml"
 fi
 
 # Ensure the 'containers' network exists
@@ -24,5 +28,5 @@ else
   docker network create containers
 fi
 
-docker compose $GPU_COMPOSE_FILE --profile "$1" pull --ignore-buildable
-docker compose $GPU_COMPOSE_FILE --profile "$1" up -d --build
+docker compose -f "$COMPOSE_FILE" --profile "$1" pull --ignore-buildable
+docker compose -f "$COMPOSE_FILE" --profile "$1" up -d --build
